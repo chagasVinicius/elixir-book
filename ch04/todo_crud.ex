@@ -60,7 +60,8 @@ defmodule TodoList do
       nil -> todo_list
 
       _ ->
-        Map.drop(todo_list, entry_id)
+        new_entries = Map.pop(entries, entry_id)
+        %TodoList{todo_list | entries: new_entries}
     end
   end
 end
